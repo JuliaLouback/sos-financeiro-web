@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>S.O.S Financeiro</title>
+		<link rel="shortcut icon" type="image/png" href="img/icone.png">
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+		<link href="css/sosfinanceiro.css" rel="stylesheet">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/cadastrar.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	</head>
+	<body class="bg-gradient-primary">
+		<style>
+			.bg-login-image {
+				background: url("img/teste.jpg");
+				background-position: center;
+				background-size: cover;
+			}
+			.modal-backdrop.fade {
+			  opacity: 0.75;
+			}
+		</style>
+		<div class="container">
+			<div class="row justify-content-center">
+			  <div class="col-xl-10 col-lg-12 col-md-9">
+				<div class="card o-hidden border-0 shadow-lg my-5">
+				  <div class="card-body p-0">
+					<div class="row">
+						<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+						<div class="col-lg-6">
+							<div class="p-5">
+								<div class="text-center">
+									<h1 class="h4 text-gray-900 mb-4">S.O.S Financeiro</h1>
+								</div>
+								<div class="text-center">
+									<h1 class="h4 text-gray-700 mb-4">Login</h1>
+								</div>
+								<form class="user" id="Login">
+									<div class="form-group">
+										<input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Entre com seu e-mail">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control form-control-user" id="senha" placeholder="Entre com a sua senha">
+									</div>
+									<button type="submit" class="btn btn-primary btn-user btn-block" value="Login">Login</button>
+								</form>
+								<hr>
+								<div class="text-center">
+									<a class="medium" href="#" data-toggle="modal" data-target="#ModalCadastro">Cadastrar </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<div class="modal fade" id="ModalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Criar nova conta</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form class="user" id="CadastroConta">
+							<div class="form-group row">
+								<div class="col-sm-6 mb-3 mb-sm-0">
+									<input type="text" class="form-control form-control-user" id="txtNomeCompleto" placeholder="Nome Completo">
+								</div>
+								<div class="col-sm-6">
+									<input type="text" class="form-control form-control-user" id="txtTelefone" placeholder="Telefone">
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class=" col-sm-6 mb-3 mb-sm-0 form-group">
+									<input type="email" class="form-control form-control-user" id="txtEmail" placeholder="E-mail">
+								</div>
+								<div class="col-sm-6 mb-3 mb-sm-0">
+									<input type="password" class="form-control form-control-user" id="txtSenha" placeholder="Senha">
+								</div>
+							</div>
+							<input type="submit" class="btn btn-primary btn-user btn-block" id="btnSalvar">
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">//mascaras para os inputs
+			$.jMaskGlobals.watchDataMask = true;
+			$('#txtTelefone').mask('(00) 0000-0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "(  ) ____-____"
+			});
+		</script>
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="js/sb-admin-2.min.js"></script>
+	</body>
+</html>

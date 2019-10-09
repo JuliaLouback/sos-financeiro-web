@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>S.O.S Financeiro - Atrasados</title>
+		<link rel="shortcut icon" type="image/png" href="img/icone.png">
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+		<link href="css/sosfinanceiro.css" rel="stylesheet">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/atrasados.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	</head>
+	<body id="page-top">
+		<script>
+			var sessao = "ok"
+
+			if(sessao != "ok"){
+				location.replace("index.html");
+			}
+
+			function sair(){
+				location.replace("index.html?sessao=sair");
+			}
+				
+		</script>
+		<div id="wrapper">
+    <!-- Sidebar -->
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		  <!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-life-ring"></i>
+				</div>
+				<div class="sidebar-brand-text mx-3">S.O.S Financeiro</div>
+			</a>
+			<hr class="sidebar-divider my-0">
+			<li class="nav-item active">
+				<a class="nav-link" href="principal.html">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Painel de Controle</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Cadastro
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="principal.html">
+				  <i class="fas fa-fw fa-cog"></i>
+				  <span>Cadastrar Lançamento</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Pesquisas
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="pesquisa.html">
+				  <i class="fas fa-search"></i>
+				  <span>Pesquisas</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Atrasados
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="atrasados.html">
+				  <i class="fas fa-money-bill-wave"></i>
+				  <span>Atrasados</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Logout
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<buttton class="nav-link collapsed" href="" onClick="sair()">
+				  <i class="fas fa-door-open"></i>
+				  <span>Sair</span>
+				</button>
+			</li>
+			<hr class="sidebar-divider d-none d-md-block">
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+		</ul>
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+				<div class="container-fluid">
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Lançamentos Atrasados</h1>
+					</div>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h5 class="m-0 font-weight-bold text-danger lancamento">Lançamentos Atrasados</h5>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; S.O.S Financeiro 2019</span>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<div class="modal fade" id="ModalCadastro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Cadastrar Lançamento	</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="Cadastro">
+							<h5>Data Prevista</h5>
+							<div class="input-group mb-3">
+								<input type="text" id="txtDataPrevista" name="dataPrevista" class="form-control dataP" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							</div>
+							<h5>Data Efetivada</h5>
+							<div class="input-group mb-3">
+								<input type="text" id="txtDataEfetivada" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							</div>
+							<h5>Categoria</h5>
+							<select id="txtCategoria" class="form-control">
+								<option value="Despesa">Despesa</option>
+								<option value="Receita">Receita</option>
+							</select>
+							<br>
+							<h5>Valor</h5>
+							<div class="input-group mb-3">
+								<input type="number" min="0.00" step="0.01" value="1.00" id="txtValor" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							</div>
+							<h5>Descrição</h5>
+							<div class="input-group mb-3">
+								<select id="txtDescricao" class="form-control">
+									<option value="Salário">Sálario</option>
+									<option value="Aluguel">Aluguel</option>
+									<option value="Água">Água</option>
+									<option value="Luz">Luz</option>
+									<option value="Supermercado">Supermercado</option>
+									<option value="Remédio">Remédio</option>
+									<option value="Roupas">Roupas</option>
+									<option value="Passagem">Passagem</option>
+									<option value="Combustível">Combustível</option>
+									<option value="Outros">Outros</option>
+								</select>
+							</div>
+							<!----<h5>Situação</h5>
+							<select id="txtStatus" class="form-control">
+								<option value="Efetivada">Efetivada</option>
+								<option value="Não Efetivada">Não Efetivada</option>
+							</select>--->
+							<button type="submit" class="btn btn-primary">Salvar</button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">//mascaras para os inputs
+			$.jMaskGlobals.watchDataMask = true;
+			$('#txtDataPrevista').mask('00/00/0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "__/__/___"
+			});
+			$('#txtDataEfetivada').mask('00/00/0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "__/__/___"
+			});
+			$('#txtPesquisa').mask('00/00/0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "__/__/___"
+			});
+		</script>
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin-2.min.js"></script>
+
+		<!-- Page level plugins -->
+		<script src="vendor/chart.js/Chart.min.js"></script>
+
+		<!-- Page level custom scripts -->
+		<script src="js/demo/chart-area-demo.js"></script>
+		<script src="js/demo/chart-pie-demo.js"></script>
+
+	</body>
+</html>

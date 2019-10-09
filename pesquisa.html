@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>S.O.S Financeiro - Pesquisas</title>
+		<link rel="shortcut icon" type="image/png" href="img/icone.png">
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+		<link href="css/sosfinanceiro.css" rel="stylesheet">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/mudancas.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	</head>
+	<body id="page-top">
+		<script>
+			var sessao = "ok"
+
+			if(sessao != "ok"){
+				location.replace("index.html");
+			}
+
+			function sair(){
+				location.replace("index.html?sessao=sair");
+			}
+			
+		</script>
+		<div id="wrapper">
+    <!-- Sidebar -->
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+		  <!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-life-ring"></i>
+				</div>
+				<div class="sidebar-brand-text mx-3">S.O.S Financeiro</div>
+			</a>
+			<hr class="sidebar-divider my-0">
+			<li class="nav-item active">
+				<a class="nav-link" href="principal.html">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Painel de Controle</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Cadastro
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="principal.html">
+				  <i class="fas fa-fw fa-cog"></i>
+				  <span>Cadastrar Lançamento</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Pesquisas
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="pesquisa.html">
+				  <i class="fas fa-search"></i>
+				  <span>Pesquisas</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Atrasados
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" href="atrasados.html">
+				  <i class="fas fa-money-bill-wave"></i>
+				  <span>Atrasados</span>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<div class="sidebar-heading">
+				Logout
+			</div>
+			<!-- Nav Item - Pages Collapse Menu -->
+			<li class="nav-item">
+				<buttton class="nav-link collapsed" href=" " onClick="sair()"">
+				  <i class="fas fa-door-open"></i>
+				  <span>Sair</span>
+				</button>
+			</li>
+			<hr class="sidebar-divider d-none d-md-block">
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+		</ul>
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+				<div class="container-fluid">
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<h1 class="h3 mb-0 text-gray-800">Pesquisas</h1>
+					</div>
+					<form id="CadastroPesquisa">
+						<h5>Pesquisar por Data</h5>
+						<div class="input-group mb-3">
+							<input type="text" id="txtPesquisa" onChange="mudar()" name="txtPesquisa" class="form-control dataP" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							<span class="btn btn-primary"><i class="fa fa-search"></i> &nbsp Pesquisar</span>
+						</div>
+						<h5>Pesquisar por Mês</h5>
+						<div class="input-group mb-3">
+							<select id="porMes" class="form-control" onChange="mudar1()">
+								<option value="00"></option>
+								<option value="01">Janeiro</option>
+								<option value="02">Fevereiro</option>
+								<option value="03">Março</option>
+								<option value="04">Abril</option>
+								<option value="05">Maio</option>
+								<option value="06">Junho</option>
+								<option value="07">Julho</option>
+								<option value="08">Agosto</option>
+								<option value="09">Setembro</option>
+								<option value="10">Outubro</option>
+								<option value="11">Novembro</option>
+								<option value="12">Dezembro</option>
+							</select>
+							<!--<input  id="porMes" onChange="mudar1()" class="form-control dataP" aria-label="Default" aria-describedby="inputGroup-sizing-default">-->
+							<span class="btn btn-primary"><i class="fa fa-search"></i> &nbsp Pesquisar</span>
+						</div>
+						<h5>Pesquisar por Período</h5>
+						<div class="input-group mb-3">
+							<input type="text" id="txtInicio" onChange="mudar2()" name="txtInicio" class="form-control dataP" aria-label="Default" aria-describedby="inputGroup-sizing-default"> &nbsp &nbsp &nbsp &nbsp
+							<input type="text" id="txtFinal" onChange="mudar2()" name="txtFinal" class="form-control dataP" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							<span class="btn btn-primary"><i class="fa fa-search"></i> &nbsp Pesquisar</span>
+						</div>
+					</form>
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h5 class="m-0 font-weight-bold text-danger lancamento">Pesquisas</h5>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+									
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>Copyright &copy; S.O.S Financeiro 2019</span>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<div class="modal fade" id="ModalTabela" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Pesquisas</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form id="CadastroPesquisa">
+							<h5>Data</h5>
+							<div class="input-group mb-3">
+								<input type="text" id="txtPesquisa" name="txtPesquisa" class="form-control dataP" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+								<button onchange="mudar()" class="btn btn-primary"><i class="fa fa-search"></i> &nbsp Pesquisar</button>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">//mascaras para os inputs
+			$.jMaskGlobals.watchDataMask = true;
+			$('#txtPesquisa').mask('00/00/0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "__/__/___"
+			});
+			$('#txtInicio').mask('00/00/0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "__/__/___"
+			});
+			$('#txtFinal').mask('00/00/0000', {
+				translation: {
+					'Z': {
+						pattern: /[0-9]/, optional: true
+					}
+				},
+				placeholder: "__/__/___"
+			});
+		</script>
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin-2.min.js"></script>
+
+		
+
+
+	</body>
+</html>
